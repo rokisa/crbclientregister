@@ -1,4 +1,4 @@
-[info] Updating {file:/D:/Roy/CRBClientregister/project/}crbclientregister-build...
+[info] Updating {file:/D:/Roy/Data/crbclientregister/project/}crbclientregister-build...
 [debug] :: resolving dependencies :: default#crbclientregister-build;0.1-SNAPSHOT
 [debug] 	confs: [compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool]
 [debug] 	validate = true
@@ -11779,19 +11779,19 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.5!apply-macro.jar
 [debug] 	[NOT REQUIRED] org.scala-lang#jline;2.10.4!jline.jar
 [debug] 	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar
-[debug] :: resolution report :: resolve 10969ms :: artifacts dl 337ms
-[debug] 	report for default#crbclientregister-build;0.1-SNAPSHOT compile produced in D:\Roy\CRBClientregister\project\target\resolution-cache\reports\default-crbclientregister-build-compile.xml
-[debug] 	report for default#crbclientregister-build;0.1-SNAPSHOT runtime produced in D:\Roy\CRBClientregister\project\target\resolution-cache\reports\default-crbclientregister-build-runtime.xml
-[debug] 	report for default#crbclientregister-build;0.1-SNAPSHOT test produced in D:\Roy\CRBClientregister\project\target\resolution-cache\reports\default-crbclientregister-build-test.xml
-[debug] 	report for default#crbclientregister-build;0.1-SNAPSHOT provided produced in D:\Roy\CRBClientregister\project\target\resolution-cache\reports\default-crbclientregister-build-provided.xml
-[debug] 	report for default#crbclientregister-build;0.1-SNAPSHOT optional produced in D:\Roy\CRBClientregister\project\target\resolution-cache\reports\default-crbclientregister-build-optional.xml
-[debug] 	report for default#crbclientregister-build;0.1-SNAPSHOT compile-internal produced in D:\Roy\CRBClientregister\project\target\resolution-cache\reports\default-crbclientregister-build-compile-internal.xml
-[debug] 	report for default#crbclientregister-build;0.1-SNAPSHOT runtime-internal produced in D:\Roy\CRBClientregister\project\target\resolution-cache\reports\default-crbclientregister-build-runtime-internal.xml
-[debug] 	report for default#crbclientregister-build;0.1-SNAPSHOT test-internal produced in D:\Roy\CRBClientregister\project\target\resolution-cache\reports\default-crbclientregister-build-test-internal.xml
-[debug] 	report for default#crbclientregister-build;0.1-SNAPSHOT plugin produced in D:\Roy\CRBClientregister\project\target\resolution-cache\reports\default-crbclientregister-build-plugin.xml
-[debug] 	report for default#crbclientregister-build;0.1-SNAPSHOT sources produced in D:\Roy\CRBClientregister\project\target\resolution-cache\reports\default-crbclientregister-build-sources.xml
-[debug] 	report for default#crbclientregister-build;0.1-SNAPSHOT docs produced in D:\Roy\CRBClientregister\project\target\resolution-cache\reports\default-crbclientregister-build-docs.xml
-[debug] 	report for default#crbclientregister-build;0.1-SNAPSHOT pom produced in D:\Roy\CRBClientregister\project\target\resolution-cache\reports\default-crbclientregister-build-pom.xml
-[debug] 	report for default#crbclientregister-build;0.1-SNAPSHOT scala-tool produced in D:\Roy\CRBClientregister\project\target\resolution-cache\reports\default-crbclientregister-build-scala-tool.xml
-[debug] 	resolve done (10969ms resolve - 337ms download)
+[debug] :: resolution report :: resolve 11282ms :: artifacts dl 276ms
+[debug] 	report for default#crbclientregister-build;0.1-SNAPSHOT compile produced in D:\Roy\Data\crbclientregister\project\target\resolution-cache\reports\default-crbclientregister-build-compile.xml
+[debug] 	report for default#crbclientregister-build;0.1-SNAPSHOT runtime produced in D:\Roy\Data\crbclientregister\project\target\resolution-cache\reports\default-crbclientregister-build-runtime.xml
+[debug] 	report for default#crbclientregister-build;0.1-SNAPSHOT test produced in D:\Roy\Data\crbclientregister\project\target\resolution-cache\reports\default-crbclientregister-build-test.xml
+[debug] 	report for default#crbclientregister-build;0.1-SNAPSHOT provided produced in D:\Roy\Data\crbclientregister\project\target\resolution-cache\reports\default-crbclientregister-build-provided.xml
+[debug] 	report for default#crbclientregister-build;0.1-SNAPSHOT optional produced in D:\Roy\Data\crbclientregister\project\target\resolution-cache\reports\default-crbclientregister-build-optional.xml
+[debug] 	report for default#crbclientregister-build;0.1-SNAPSHOT compile-internal produced in D:\Roy\Data\crbclientregister\project\target\resolution-cache\reports\default-crbclientregister-build-compile-internal.xml
+[debug] 	report for default#crbclientregister-build;0.1-SNAPSHOT runtime-internal produced in D:\Roy\Data\crbclientregister\project\target\resolution-cache\reports\default-crbclientregister-build-runtime-internal.xml
+[debug] 	report for default#crbclientregister-build;0.1-SNAPSHOT test-internal produced in D:\Roy\Data\crbclientregister\project\target\resolution-cache\reports\default-crbclientregister-build-test-internal.xml
+[debug] 	report for default#crbclientregister-build;0.1-SNAPSHOT plugin produced in D:\Roy\Data\crbclientregister\project\target\resolution-cache\reports\default-crbclientregister-build-plugin.xml
+[debug] 	report for default#crbclientregister-build;0.1-SNAPSHOT sources produced in D:\Roy\Data\crbclientregister\project\target\resolution-cache\reports\default-crbclientregister-build-sources.xml
+[debug] 	report for default#crbclientregister-build;0.1-SNAPSHOT docs produced in D:\Roy\Data\crbclientregister\project\target\resolution-cache\reports\default-crbclientregister-build-docs.xml
+[debug] 	report for default#crbclientregister-build;0.1-SNAPSHOT pom produced in D:\Roy\Data\crbclientregister\project\target\resolution-cache\reports\default-crbclientregister-build-pom.xml
+[debug] 	report for default#crbclientregister-build;0.1-SNAPSHOT scala-tool produced in D:\Roy\Data\crbclientregister\project\target\resolution-cache\reports\default-crbclientregister-build-scala-tool.xml
+[debug] 	resolve done (11282ms resolve - 276ms download)
 [info] Done updating.

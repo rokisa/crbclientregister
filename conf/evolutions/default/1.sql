@@ -12,7 +12,7 @@ create table client_details (
   phone_number              varchar(255),
   nationality               varchar(255),
   physical_address          varchar(255),
-  date_of_birth             bigint,
+  date_of_birth             varchar(255),
   occupation                varchar(255),
   national_id_photo         varchar(255),
   constraint pk_client_details primary key (client_id))

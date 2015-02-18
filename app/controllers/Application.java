@@ -27,28 +27,30 @@ public class Application extends Controller {
     }
 
     public static Result saveClient(){
-        JSONObject jsnObj = new JSONObject();
+        ObjectNode jsnObj = Json.newObject();
         jsnObj.put("status", "SUCCESS");
 
-        final Map<String, String[]> values = request().body().asFormUrlEncoded();
+        JsonNode json = request().body().asJson();
+
+        System.out.print("New Values.....    "+json.toString());
 
         ClientDetails clientDetails = new ClientDetails();
-        clientDetails.dateOfBirth = getDate(values.get("dateOfBirth")[0]).getTime();
-        clientDetails.emailAddress = values.get("emailAddress")[0];
-        clientDetails.firstName = values.get("firstName")[0];
-        clientDetails.lastName = values.get("lastName")[0];
-        clientDetails.nationalId = values.get("nationalId")[0];
-        clientDetails.nationality = values.get("nationality")[0];
-        clientDetails.occupation = values.get("occupation")[0];
-        clientDetails.phoneNumber = values.get("phoneNumber")[0];
-        clientDetails.physicalAddress = values.get("physicalAddress")[0];
+        clientDetails.dateOfBirth = json.get("dateOfBirth").asText();
+        clientDetails.emailAddress = json.get("emailAddress").asText();
+        clientDetails.firstName = json.get("firstName").asText();
+        clientDetails.lastName = json.get("lastName").asText();
+        clientDetails.nationalId = json.get("nationalId").asText();
+        clientDetails.nationality = json.get("nationality").asText();
+        clientDetails.occupation = json.get("occupation").asText();
+        clientDetails.phoneNumber = json.get("phoneNumber").asText();
+        clientDetails.physicalAddress = json.get("physicalAddress").asText();
         clientDetails.save();
 
-        return ok(Json.toJson(jsnObj));
+        return ok(jsnObj);
     }
 
     public static Result addNextOfKin(){
-        JSONObject jsnObj = new JSONObject();
+        ObjectNode jsnObj = Json.newObject();
         jsnObj.put("status", "SUCCESS");
 
         final Map<String, String[]> values = request().body().asFormUrlEncoded();
@@ -62,11 +64,11 @@ public class Application extends Controller {
         nextOfKin.relationship = values.get("relationship")[0];
         nextOfKin.save();
 
-        return ok(Json.toJson(jsnObj));
+        return ok(jsnObj);
     }
 
     public static Result uploadIdImage(){
-        JSONObject result = new JSONObject();
+        ObjectNode result = Json.newObject();
         final Map<String, String[]> values = request().body().asFormUrlEncoded();
 
         ClientDetails clientDetails = ClientDetails.findByClientId(Long.parseLong(values.get("clientId")[0]));
@@ -96,19 +98,7 @@ public class Application extends Controller {
         return ok(Json.toJson(ClientDetails.fetchAllClients()));
     }
 
-    public static Result getClientRecHSN(String clientId){
+    public static Result getClientRecHSN(String clientId) {
         return ok(Json.toJson(ClientDetails.findByClientId(Long.parseLong(clientId))));
-    }
-
-    private static Date getDate(String strDate){
-
-        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-        Date date = new Date();
-        try {
-            date = formatter.parse(strDate);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return date;
     }
 }

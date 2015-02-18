@@ -38,7 +38,7 @@ public class ClientDetails extends Model {
     public String physicalAddress;
 
     @Constraints.Required
-    public Long dateOfBirth;
+    public String dateOfBirth;
 
     @Constraints.Required
     public String occupation;
