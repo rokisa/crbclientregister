@@ -38,13 +38,16 @@ public class ClientDetails extends Model {
     public String physicalAddress;
 
     @Constraints.Required
-    public String dateOfBirth;
+    public long dateOfBirth;
 
     @Constraints.Required
     public String occupation;
 
     @Constraints.Required
     public String nationalIdPhoto;
+
+    @Constraints.Required
+    public String photo;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "clientDetails")
     public List<NextOfKin> nextOfKinList;

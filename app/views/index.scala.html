@@ -27,7 +27,7 @@
                 <td>@client.occupation</td>
                 <td>@client.phoneNumber</td>
                 <td>@client.emailAddress</td>
-                <td>@client.dateOfBirth</td>
+                <td>@{new Date(client.dateOfBirth)}</td>
             </tr>
         }
         </tbody>

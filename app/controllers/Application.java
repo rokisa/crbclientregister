@@ -35,7 +35,7 @@ public class Application extends Controller {
         System.out.print("New Values.....    "+json.toString());
 
         ClientDetails clientDetails = new ClientDetails();
-        clientDetails.dateOfBirth = json.get("dateOfBirth").asText();
+        clientDetails.dateOfBirth = json.get("dateOfBirth").asLong();
         clientDetails.emailAddress = json.get("emailAddress").asText();
         clientDetails.firstName = json.get("firstName").asText();
         clientDetails.lastName = json.get("lastName").asText();
@@ -80,7 +80,7 @@ public class Application extends Controller {
             File file = body.getFiles().get(0).getFile();
             String extension = body.getFiles().get(0).getContentType().split("image/")[1];
             if(file != null){
-                String myUploadPath = Play.application().configuration().getString("myUploadPath");
+                String myUploadPath = Play.application().configuration().getString("clientIdPhotosPath");
                 String photoName = clientDetails.nationalId+"."+extension;
                 file.renameTo(new File(myUploadPath, photoName));
 
