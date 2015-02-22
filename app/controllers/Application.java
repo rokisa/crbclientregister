@@ -49,6 +49,30 @@ public class Application extends Controller {
         return ok(jsnObj);
     }
 
+    public static Result updateClient(){
+        ObjectNode jsnObj = Json.newObject();
+        jsnObj.put("status", "SUCCESS");
+
+        JsonNode json = request().body().asJson();
+
+        System.out.print("Update Values.....    "+json.toString());
+
+        ClientDetails clientDetails = new ClientDetails();
+        clientDetails.clientId = json.get("clientId").asLong();
+        clientDetails.dateOfBirth = json.get("dateOfBirth").asLong();
+        clientDetails.emailAddress = json.get("emailAddress").asText();
+        clientDetails.firstName = json.get("firstName").asText();
+        clientDetails.lastName = json.get("lastName").asText();
+        clientDetails.nationalId = json.get("nationalId").asText();
+        clientDetails.nationality = json.get("nationality").asText();
+        clientDetails.occupation = json.get("occupation").asText();
+        clientDetails.phoneNumber = json.get("phoneNumber").asText();
+        clientDetails.physicalAddress = json.get("physicalAddress").asText();
+        clientDetails.update();
+
+        return ok(jsnObj);
+    }
+
     public static Result addNextOfKin(){
         ObjectNode jsnObj = Json.newObject();
         jsnObj.put("status", "SUCCESS");

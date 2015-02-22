@@ -7,6 +7,7 @@ GET         /                                 controllers.Application.index
 GET         /clientrec/list                   controllers.Application.getClientsRecJSN
 GET         /clientrec/fetch/:clientId        controllers.Application.getClientRecHSN(clientId)
 POST        /clientrec/save                   controllers.Application.saveClient()
+POST        /clientrec/update                 controllers.Application.updateClient()
 POST        /clientrec/uploadidphoto          controllers.Application.uploadIdImage()
 POST        /clientrec/addnextofkin           controllers.Application.addNextOfKin()
 
