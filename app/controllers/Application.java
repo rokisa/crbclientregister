@@ -32,7 +32,8 @@ public class Application extends Controller {
 
         JsonNode json = request().body().asJson();
 
-        System.out.print("New Values.....    "+json.toString());
+        System.out.print("New Values.....    "+json.get("emailAddress"));
+        System.out.print("De Date Values.....    "+new Date(json.get("dateOfBirth").asLong()));
 
         ClientDetails clientDetails = new ClientDetails();
         clientDetails.dateOfBirth = json.get("dateOfBirth").asLong();
@@ -55,7 +56,8 @@ public class Application extends Controller {
 
         JsonNode json = request().body().asJson();
 
-        System.out.print("Update Values.....    "+json.toString());
+        System.out.print("Update Values.....    "+json.get("emailAddress"));
+        System.out.print("New Date Of Birth is.....    "+new Date(json.get("dateOfBirth").asLong()));
 
         ClientDetails clientDetails = new ClientDetails();
         clientDetails.clientId = json.get("clientId").asLong();
@@ -77,16 +79,39 @@ public class Application extends Controller {
         ObjectNode jsnObj = Json.newObject();
         jsnObj.put("status", "SUCCESS");
 
-        final Map<String, String[]> values = request().body().asFormUrlEncoded();
-
+        JsonNode json = request().body().asJson();
+        ClientDetails clientDetails = new ClientDetails();
+        clientDetails = ClientDetails.findByClientId(json.get("customerId").asLong());
         NextOfKin nextOfKin = new NextOfKin();
-        nextOfKin.emailAddress = values.get("emailAddress")[0];
-        nextOfKin.firstName = values.get("firstName")[0];
-        nextOfKin.lastName = values.get("lastName")[0];
-        nextOfKin.nationalId = values.get("nationalId")[0];
-        nextOfKin.phoneNumber = values.get("phoneNumber")[0];
-        nextOfKin.relationship = values.get("relationship")[0];
+        nextOfKin.emailAddress = json.get("emailAddress").asText();
+        nextOfKin.firstName = json.get("firstName").asText();
+        nextOfKin.lastName = json.get("lastName").asText();
+        nextOfKin.nationalId = json.get("nationalId").asText();
+        nextOfKin.phoneNumber = json.get("phoneNumber").asText();
+        nextOfKin.relationship = json.get("relationship").asText();
+        nextOfKin.clientDetails = clientDetails;
         nextOfKin.save();
+
+        return ok(jsnObj);
+    }
+
+    public static Result updateNextOfKin(){
+        ObjectNode jsnObj = Json.newObject();
+        jsnObj.put("status", "SUCCESS");
+
+        JsonNode json = request().body().asJson();
+        ClientDetails clientDetails = new ClientDetails();
+        clientDetails = ClientDetails.findByClientId(json.get("customerId").asLong());
+        NextOfKin nextOfKin = new NextOfKin();
+        nextOfKin.nextOfKinId = json.get("nextOfKinId").asLong();
+        nextOfKin.emailAddress = json.get("emailAddress").asText();
+        nextOfKin.firstName = json.get("firstName").asText();
+        nextOfKin.lastName = json.get("lastName").asText();
+        nextOfKin.nationalId = json.get("nationalId").asText();
+        nextOfKin.phoneNumber = json.get("phoneNumber").asText();
+        nextOfKin.relationship = json.get("relationship").asText();
+        nextOfKin.clientDetails = clientDetails;
+        nextOfKin.update();
 
         return ok(jsnObj);
     }
@@ -120,6 +145,12 @@ public class Application extends Controller {
 
     public static Result getClientsRecJSN(){
         return ok(Json.toJson(ClientDetails.fetchAllClients()));
+    }
+
+    public static Result getNextOfKinRecJSN(){
+        JsonNode json = request().body().asJson();
+        return ok(Json.toJson(ClientDetails.findByClientId(
+                json.get("clientId").asLong()).nextOfKinList));
     }
 
     public static Result getClientRecHSN(String clientId) {
