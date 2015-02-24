@@ -11,7 +11,7 @@ POST        /clientrec/update                 controllers.Application.updateClie
 POST        /clientrec/uploadidphoto          controllers.Application.uploadIdImage()
 POST        /clientrec/addnextofkin           controllers.Application.addNextOfKin()
 POST        /clientrec/updatenextofkin        controllers.Application.updateNextOfKin()
-GET         /clientrec/getnextofkin           controllers.Application.getNextOfKinRecJSN()
+POST        /clientrec/getnextofkin           controllers.Application.getNextOfKinRecJSN()
 
 # Map static resources from the /public folder to the /assets URL path
 GET         /assets/*file                     controllers.Assets.at(path="/public", file)

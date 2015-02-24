@@ -18,6 +18,7 @@ import java.io.FileOutputStream;
 import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.List;
 import java.util.Map;
 
 public class Application extends Controller {
@@ -120,7 +121,7 @@ public class Application extends Controller {
         ObjectNode result = Json.newObject();
         final Map<String, String[]> values = request().body().asFormUrlEncoded();
 
-        ClientDetails clientDetails = ClientDetails.findByClientId(Long.parseLong(values.get("clientId")[0]));
+        ClientDetails clientDetails = ClientDetails.findByClientId(Long.parseLong(values.get("clientId")));
 
         Http.MultipartFormData body = request().body().asMultipartFormData();
         if(body == null){
@@ -149,8 +150,11 @@ public class Application extends Controller {
 
     public static Result getNextOfKinRecJSN(){
         JsonNode json = request().body().asJson();
-        return ok(Json.toJson(ClientDetails.findByClientId(
-                json.get("clientId").asLong()).nextOfKinList));
+        ClientDetails clientDetails = ClientDetails.
+                findByClientId(json.get("clientId").asLong());
+        List<NextOfKin> nextOfKinList = NextOfKin.getNextOfKinByClient(clientDetails);
+
+        return ok(Json.toJson(nextOfKinList));
     }
 
     public static Result getClientRecHSN(String clientId) {

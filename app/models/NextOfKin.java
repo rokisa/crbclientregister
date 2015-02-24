@@ -1,5 +1,6 @@
 package models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import play.data.validation.Constraints;
 import play.db.ebean.Model;
 
@@ -33,7 +34,7 @@ public class NextOfKin extends Model {
     public String nationalId;
 
     @ManyToOne
-    @JoinColumn(name = "clientDetails", nullable = false)
+    @JoinColumn(name = "clientDetails", nullable = false) @JsonBackReference
     public ClientDetails clientDetails;
 
     public static Finder<Long, NextOfKin> find = new Finder<Long, NextOfKin>(
