@@ -186,7 +186,7 @@ public class Application extends Controller {
                     }
                 }
 
-                clientDetails.nationalIdPhoto = photoName;
+                clientDetails.photo = photoName;
                 clientDetails.update();
                 result.put("status", "SUCCESS");
             } else {
